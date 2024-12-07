@@ -1,0 +1,485 @@
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #e0f7ff;
+    margin-top: 130px;
+
+}
+h1 {
+    color: #004080;
+    text-align: center;
+}
+form {
+
+    max-width: 220px;
+
+    margin: 0 auto;
+}
+input, textarea, button, select {
+    display: block;
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+}
+button {
+    background-color: #0073e6;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #005bb5;
+}
+#fileOption{
+    display: flex;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+*, *:before, *:after {
+    padding: 0;
+    margin: 0;
+    border: none;
+    box-sizing: border-box;
+  }
+
+  
+  .container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 10px;
+  }
+  
+  .header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 50;
+    margin-bottom: 3%;
+  }
+  
+  .header__logo {
+    flex: 0 0 60px;
+  /*следующие две строки: картинка становится круглой*/
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    z-index: 3;
+  }
+  
+  .header__logo img {
+    max-width: 100%;
+  /*убирает нижнее подрезание для круглой картинки*/
+    display: block;
+  }
+  
+  .header:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #005bb5;
+    z-index: 2;
+  }
+  
+  .header__body {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: 80px;
+    align-items: center;
+  }
+  
+  .header__burger {
+    display: none;
+  }
+  
+  .header__list {
+    display: flex;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .header__list li {
+    list-style: none;
+    margin: 0 0 0 20px;
+  }
+  
+  .header__link {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 18px;
+    text-decoration: none;
+  }
+  
+  /*классический вариант: @media (max-width:767px), я беру с запасом*/
+  @media (max-width:800px) {
+    body.lock {
+      overflow: hidden;
+    }
+  
+    .header__body {
+      height: 50px;
+    }
+  
+    .header__logo {
+      flex: 0 0 40px;
+    }
+  
+    .header__burger {
+      display: block;
+      position: relative;
+      width: 30px;
+      height: 20px;
+      z-index: 3;
+    }
+  
+    .header__burger span {
+      background-color: #fff;
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      left: 0;
+      top: 9px;
+      transition: all 0.3s ease 0s;
+    }
+  
+    .header__burger:before,
+    .header__burger:after {
+      content: '';
+      background-color: #fff;
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      left: 0;
+      transition: all 0.3s ease 0s;
+    }
+  
+    .header__burger:before {
+      top: 0;
+    }
+  
+    .header__burger:after {
+      bottom: 0;
+    }
+  
+    .header__burger.active:before {
+      transform: rotate(45deg);
+      top: 9px;
+    }
+  
+    .header__burger.active:after {
+      transform: rotate(-45deg);
+      bottom: 9px;
+    }
+  
+    .header__burger.active span {
+      transform: scale(0);
+    }
+  
+    .header__menu {
+      position: fixed;
+      top: -100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+  /*для прокрутки меню, когда оно не помещается в экран*/
+      overflow: auto;   
+      background-color: darkcyan;
+      padding: 70px 10px 20px 10px;
+      transition: all 0.3s ease 0s;
+    }
+  
+    .header__menu.active {
+      top: 50px;
+    }
+  
+    .header__list {
+      display: block;
+    }
+  
+    .header__list li {
+      margin: 0 0 20px 0;
+    }
+  
+    .header__link {
+      font-size: 24px;
+    }
+  }
+  
+  .content {
+    padding: 100px 0 0 0;
+  }
+  
+  @media (max-width:800px) {
+    .content {
+      padding: 70px 0 0 0;
+    }
+  }
+
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.card h3 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.card button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.card button:hover {
+    background: #0056b3;
+}
+
+/* Модальное окно */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.modal-content button {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.modal-content button:hover {
+    background: #218838;
+}
+
+
+
+label{
+
+    display: flex;
+    color: rgb(81, 81, 71);
+
+}
+#color{
+    border: 1px solid #cccccc;
+    color: rgb(81, 81, 71);
+    outline: none;
+}
+
+
+#instruction{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#instruction h2{
+  margin-bottom: 30px;
+}
+
+.inst1{
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  margin-top: 40px;
+  margin-left: 50px;
+}
+
+.bloke{
+  display: flex;
+  justify-content: center;
+}
+
+#instruction a{
+  color: black;
+  text-decoration: none;
+  border-bottom: 1px solid black;
+}
+
+.tg{
+  margin-top: 40px;
+}
+
+
+.developer{
+  display: flex;
+  flex-direction: row;
+  width: 800px;
+  height: 500px;
+  justify-content: center;
+  align-items: center;
+}
+
+.developer img{
+  border-radius: 50%;
+  width: 350px;
+  height: 350px;
+  margin-left: 10px;
+}
+
+.info{
+  display: flex;
+  flex-direction: column;
+}
+
+.info h1{
+  color: black;
+  margin-bottom: 10px;
+}
+
+.bottom{
+  margin-bottom: 40px;
+  margin-left: 60px;
+}
+
+.dm{
+  width: 340px;
+  margin-left: 65px;
+}
+
+.dm p{
+  font-size: 17px;
+}
+
+.developer a{
+  color: black;
+  text-decoration: none;
+  border-bottom: 1px solid black;
+}
+
+.contBl{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.instruction2{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 70px;
+}
+
+.instruction2 h2{
+  margin-bottom: 30px;
+}
+
+.instruction2 a{
+  color: black;
+  text-decoration: none;
+  border-bottom: 1px solid black;
+}
+
+.uvaga{
+  margin-top: 10px;
+  color: rgb(184, 15, 15);
+}
+
+@media (max-width:768px){
+    
+.inst1{
+  margin-left: 40px;
+  width: 70%;
+}
+
+.bloke{
+  flex-direction: column;
+  align-items: center;
+}
+
+#instruction h3{
+  font-size: 15px;
+}
+
+.bloke{
+  margin-right: 60px;
+}
+
+.uvaga{
+  margin-left: 10px;
+}
+
+
+.developer{
+  flex-direction: column;
+  margin-left: 30px;
+}
+.developer img{
+  width: 300px;
+  height: 300px;
+}
+}
