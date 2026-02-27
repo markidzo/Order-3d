@@ -1,1 +1,1 @@
-Цей інтернет магазин з друкування та продажу 3д об'єктів. Я є співрозробник цього сайту
+This is an online store for printing and selling 3D objects. I am a co-developer of this site
